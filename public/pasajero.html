@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#ffc400" />
+    <title>Taxi Seguro</title>
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" href="/icons/icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/vendor/leaflet/leaflet.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body class="map-page">
+    <header class="topbar">
+      <span class="brand">🚕 <span data-i18n="appName">Taxi Seguro</span> · <span id="town"></span></span>
+      <button id="lang-toggle" type="button" aria-label="Idioma / Language">EN</button>
+      <button id="logout" type="button" data-i18n="logout"></button>
+    </header>
+
+    <button id="sos" class="sos-btn" type="button" hidden aria-label="SOS">SOS</button>
+
+    <div class="map-layout">
+      <div id="map" role="application" aria-label="Mapa"></div>
+
+      <section class="sheet" id="sheet">
+        <!-- Planificar viaje -->
+        <div id="plan-view" hidden>
+          <div class="place-field">
+            <label for="pickup-input">📍 <span data-i18n="pickup"></span></label>
+            <div class="row">
+              <input id="pickup-input" autocomplete="off" data-i18n-placeholder="searchPlace" />
+              <button class="btn small ghost" id="gps-btn" type="button" style="flex: none; margin-top: 0" data-i18n="useMyLocation"></button>
+            </div>
+            <ul class="suggestions" id="pickup-suggestions" hidden></ul>
+          </div>
+
+          <div class="place-field">
+            <label for="dropoff-input">🏁 <span data-i18n="dropoff"></span></label>
+            <input id="dropoff-input" autocomplete="off" data-i18n-placeholder="searchPlace" />
+            <ul class="suggestions" id="dropoff-suggestions" hidden></ul>
+          </div>
+
+          <p class="muted" id="map-hint"></p>
+
+          <label for="notes" data-i18n="notes"></label>
+          <input id="notes" maxlength="200" />
+
+          <div class="fare-box" id="fare-box" hidden>
+            <div>
+              <div class="muted" data-i18n="estimate"></div>
+              <div class="muted"><span data-i18n="distance"></span>: <span id="fare-km"></span> km</div>
+            </div>
+            <div class="price" id="fare-price"></div>
+          </div>
+
+          <p class="error" id="plan-error" role="alert"></p>
+          <button class="btn accent" id="request-btn" type="button" disabled data-i18n="requestTaxi"></button>
+        </div>
+
+        <!-- Viaje en curso -->
+        <div id="trip-view" hidden></div>
+      </section>
+    </div>
+
+    <script src="/vendor/leaflet/leaflet.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/pasajero.js"></script>
+  </body>
+</html>

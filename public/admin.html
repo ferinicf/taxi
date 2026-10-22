@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffc400" />
+    <title>Taxi Seguro · Central</title>
+    <link rel="icon" href="/icons/icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <span class="brand">🚕 <span data-i18n="admin"></span> · <span id="town"></span></span>
+      <button id="lang-toggle" type="button" aria-label="Idioma / Language">EN</button>
+      <button id="logout" type="button" data-i18n="logout"></button>
+    </header>
+
+    <main class="container" style="max-width: 820px">
+      <div class="tabs" role="tablist">
+        <button role="tab" data-tab="alerts" aria-selected="true"><span data-i18n="alerts"></span> <span id="alerts-count" class="badge danger" hidden></span></button>
+        <button role="tab" data-tab="drivers" aria-selected="false"><span data-i18n="drivers"></span> <span id="pending-count" class="badge warn" hidden></span></button>
+        <button role="tab" data-tab="trips" aria-selected="false" data-i18n="allTrips"></button>
+      </div>
+      <section id="tab-alerts" class="list" role="tabpanel"></section>
+      <section id="tab-drivers" class="list" role="tabpanel" hidden></section>
+      <section id="tab-trips" class="list" role="tabpanel" hidden></section>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/admin.js"></script>
+  </body>
+</html>

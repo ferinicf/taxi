@@ -1,0 +1,13 @@
+{
+  "name": "Taxi Seguro",
+  "short_name": "Taxi Seguro",
+  "description": "Pide un taxi verificado de tu localidad de forma segura",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f6f6f3",
+  "theme_color": "#ffc400",
+  "lang": "es",
+  "icons": [
+    { "src": "/icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

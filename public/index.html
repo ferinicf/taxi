@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#ffc400" />
+    <title>Taxi Seguro</title>
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" href="/icons/icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <span class="brand">🚕 <span data-i18n="appName">Taxi Seguro</span> · <span id="town"></span></span>
+      <button id="lang-toggle" type="button" aria-label="Idioma / Language">EN</button>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <div class="logo" aria-hidden="true">🚕</div>
+        <h1 data-i18n="appName">Taxi Seguro</h1>
+        <p class="muted" data-i18n="tagline"></p>
+      </section>
+
+      <section class="card">
+        <div class="role-switch" role="group">
+          <button type="button" data-role="passenger" aria-pressed="true" data-i18n="iAmPassenger"></button>
+          <button type="button" data-role="driver" aria-pressed="false" data-i18n="iAmDriver"></button>
+        </div>
+
+        <form id="auth-form" novalidate>
+          <h2 id="form-title" data-i18n="register"></h2>
+
+          <div data-only="register">
+            <label for="name" data-i18n="name"></label>
+            <input id="name" name="name" autocomplete="name" maxlength="80" />
+          </div>
+
+          <label for="phone" data-i18n="phone"></label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+34 600 000 000" />
+
+          <label for="password" data-i18n="password"></label>
+          <input id="password" name="password" type="password" autocomplete="current-password" minlength="6" />
+
+          <div data-only="register passenger">
+            <label for="emergencyContact" data-i18n="emergencyContact"></label>
+            <input id="emergencyContact" name="emergencyContact" type="tel" inputmode="tel" />
+          </div>
+
+          <div data-only="register driver">
+            <label for="licenseNumber" data-i18n="licenseNumber"></label>
+            <input id="licenseNumber" name="licenseNumber" maxlength="40" />
+            <div class="row">
+              <div>
+                <label for="plate" data-i18n="plate"></label>
+                <input id="plate" name="plate" maxlength="15" style="text-transform: uppercase" />
+              </div>
+              <div>
+                <label for="color" data-i18n="color"></label>
+                <input id="color" name="color" maxlength="30" />
+              </div>
+            </div>
+            <label for="vehicle" data-i18n="vehicle"></label>
+            <input id="vehicle" name="vehicle" maxlength="60" />
+            <label for="photo" data-i18n="photo"></label>
+            <input id="photo" name="photo" type="file" accept="image/*" capture="user" />
+            <img id="photo-preview" class="driver-photo" alt="" hidden style="margin-top: 8px" />
+          </div>
+
+          <p class="error" id="form-error" role="alert"></p>
+          <button class="btn accent" type="submit" id="submit-btn" data-i18n="register"></button>
+          <button class="link-btn" type="button" id="mode-toggle" data-i18n="haveAccount"></button>
+        </form>
+      </section>
+
+      <section class="card">
+        <ul class="safety-list">
+          <li>✅ <span data-i18n="safety1"></span></li>
+          <li>🪪 <span data-i18n="safety2"></span></li>
+          <li>🔢 <span data-i18n="safety3"></span></li>
+          <li>📲 <span data-i18n="safety4"></span></li>
+          <li>🚨 <span data-i18n="safety5"></span></li>
+          <li>💶 <span data-i18n="safety6"></span></li>
+        </ul>
+      </section>
+    </main>
+
+    <script src="/js/common.js"></script>
+    <script src="/js/index.js"></script>
+  </body>
+</html>

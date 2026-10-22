@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#ffc400" />
+    <meta name="robots" content="noindex" />
+    <title>Taxi Seguro · Seguimiento</title>
+    <link rel="icon" href="/icons/icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/vendor/leaflet/leaflet.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body class="map-page">
+    <header class="topbar">
+      <span class="brand">🚕 <span data-i18n="trackTitle"></span></span>
+      <button id="lang-toggle" type="button" aria-label="Idioma / Language">EN</button>
+    </header>
+
+    <div class="map-layout">
+      <div id="map" role="application" aria-label="Mapa"></div>
+      <section class="sheet">
+        <p class="muted" data-i18n="trackHelp"></p>
+        <div id="trip"></div>
+      </section>
+    </div>
+
+    <script src="/vendor/leaflet/leaflet.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/seguimiento.js"></script>
+  </body>
+</html>

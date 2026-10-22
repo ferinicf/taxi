@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#ffc400" />
+    <title>Taxi Seguro · Taxista</title>
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" href="/icons/icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/vendor/leaflet/leaflet.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body class="map-page">
+    <header class="topbar">
+      <span class="brand">🚕 <span data-i18n="appName">Taxi Seguro</span> · <span id="driver-name"></span></span>
+      <button id="lang-toggle" type="button" aria-label="Idioma / Language">EN</button>
+      <button id="logout" type="button" data-i18n="logout"></button>
+    </header>
+
+    <button id="sos" class="sos-btn" type="button" hidden aria-label="SOS">SOS</button>
+
+    <div class="map-layout">
+      <div id="map" role="application" aria-label="Mapa"></div>
+
+      <section class="sheet">
+        <div id="pending-view" hidden>
+          <h2 data-i18n="pendingVerification"></h2>
+          <p class="muted" data-i18n="pendingVerificationHelp"></p>
+        </div>
+
+        <div id="online-view" hidden>
+          <div class="toggle-online">
+            <div><span class="dot" id="online-dot"></span><strong id="online-label"></strong></div>
+            <button class="btn small" id="online-btn" type="button"></button>
+          </div>
+          <p class="muted" id="location-warning" hidden data-i18n="locationNeeded"></p>
+          <div id="requests-wrap" hidden>
+            <h3 style="margin-top: 16px" data-i18n="requests"></h3>
+            <div class="list" id="requests"></div>
+          </div>
+        </div>
+
+        <div id="trip-view" hidden></div>
+      </section>
+    </div>
+
+    <script src="/vendor/leaflet/leaflet.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/conductor.js"></script>
+  </body>
+</html>
